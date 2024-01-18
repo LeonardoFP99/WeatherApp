@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 </head>
 
 <body>
     <form method="post">
-        {% csfr_token %}
+        {% csrf_token %}
         <input type="text" name="city1" placeholder="City 1">
         <input type="text" name="city2" placeholder="City 2">
         <button type="submit">COMPARE WEATHER</button>
@@ -19,13 +21,13 @@
     <div class="comparison-container">
         {% if weather_data1 %}
         <div class="city-container">
-            {% include 'city_weather.html' with weather_data=weather_data1 daily_forecasts=daily_forecasts1 %}
+            {% include 'city_weather.html' with weather_data=weather_data1 daily_forecast=daily_forecast1 %}
         </div>
         {% endif %}
 
         {% if weather_data2 %}
         <div class="city-container">
-            {% include 'city_weather.html' with weather_data=weather_data2 daily_forecasts=daily_forecasts2 %}
+            {% include 'city_weather.html' with weather_data=weather_data2 daily_forecast=daily_forecast2 %}
         </div>
         {% endif %}
     </div>

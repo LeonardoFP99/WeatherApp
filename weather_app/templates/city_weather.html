@@ -5,10 +5,10 @@
 <img src="http://openweathermap.org/img/w/{{ weather_data.icon }}.png" alt="{{ weather_data.description }}">
 {% endif %}
 
-{% if daily_forecasts %}
+{% if daily_forecast %}
 <h2>5-Day Forecasts</h2>
-<div class="forecast_container">
-    {% for forecast in daily_forecasts %}
+<div class="forecast-container">
+    {% for forecast in daily_forecast %}
     <div class="forecast">
         <h3>{{ forecast.day }}</h3>
         <p>{{ forecast.min_temp }}°C - {{ forecast.max_temp }}°C</p>
