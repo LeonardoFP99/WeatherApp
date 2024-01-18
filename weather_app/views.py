@@ -50,7 +50,6 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
 
     daily_forecast = []
     for daily_data in forecast_response['list'][:5]:
-        print(round(daily_data['main']['temp_min'] - 273.15, 2))
         daily_forecast.append({
             "day": datetime.datetime.fromtimestamp(daily_data['dt']).strftime("%A"),
             "min_temp": round(daily_data['main']['temp_min'] - 273.15, 2),
